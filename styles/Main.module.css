@@ -1,0 +1,301 @@
+.Main {
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.ImageContainer {
+  width: 100%;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.ImageContainer2 {
+  width: 100%;
+  height: 18.4vw;
+  overflow: hidden;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.AnnouncementBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(114, 3, 114),
+    rgb(15, 18, 231)
+  );
+}
+
+.AnnouncementBarInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AnnouncementBarInner p {
+  margin-left: 20px;
+}
+
+.ArtPhotosMusicTokens {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.APMTInner {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.SecondGrid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: -11px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.SecondGrid div {
+  height: 21.79vw;
+  overflow: hidden;
+  /* background-color: brown; */
+}
+
+.Art {
+  margin-left: 22px;
+  position: relative;
+}
+
+.APMSOverlay {
+  width: calc(100%);
+  height: 100%;
+  z-index: 100;
+  background-color: black;
+  opacity: 0%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-right: 5px;
+}
+
+.APMSLabel {
+  width: calc(100%);
+  height: 100%;
+  z-index: 200;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.APMSLabel:hover {
+  cursor: pointer;
+}
+
+.APMSLabel p {
+  font-size: 24px;
+  font-family: "Avenir Next", sans-serif;
+  font-weight: 500;
+}
+
+.Art:hover .APMSOverlay {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.Photos:hover .APMSOverlay {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.Music:hover .APMSOverlay {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.Stories:hover .APMSOverlay {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.Photos {
+  margin-left: 22px;
+  position: relative;
+}
+
+.Music {
+  margin-left: 22px;
+  position: relative;
+}
+
+.Stories {
+  margin-left: 22px;
+  position: relative;
+}
+
+.FirstGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.FirstGrid div {
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.FirstGridBox {
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  padding: 11px 20px;
+  z-index: 200;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FirstGridBox:hover {
+  cursor: pointer;
+}
+
+.FirstGridBox p {
+  font-size: 24px;
+  color: white;
+  border: solid 2px white;
+  padding: 11px 20px;
+}
+
+.ThirdGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ThirdGrid div {
+  padding: 3px;
+}
+
+.ThirdGridBox {
+  width: 100%;
+  height: 100%;
+  padding: 11px 20px;
+  z-index: 200;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ThirdGridBox:hover {
+  cursor: pointer;
+}
+
+.ThirdGridBox p {
+  font-size: 18px;
+  color: white;
+  border: solid 2px white;
+  padding: 11px 20px;
+}
+
+@media (max-width: 680px) {
+  .AnnouncementBarInner {
+    flex-direction: column;
+  }
+
+  .AnnouncementBarInner h3 {
+    margin-bottom: 5px;
+  }
+
+  .AnnouncementBarInner p {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+
+  .Art .APMSOverlay {
+    width: calc(100% - 5px);
+  }
+
+  .Photos .APMSOverlay {
+    left: 5px;
+  }
+
+  .Music .APMSOverlay {
+    width: calc(100% - 5px);
+  }
+
+  .Stories .APMSOverlay {
+    left: 5px;
+  }
+
+  .FirstGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ThirdGrid {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ImageContainer2 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .SecondGrid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 0px;
+  }
+
+  .SecondGrid div {
+    height: 46.31vw;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .Art {
+    margin-left: 0px;
+    /* margin-right: 5px; */
+    padding-right: 5px;
+  }
+
+  .Photos {
+    margin-left: 0px;
+    padding-left: 5px;
+  }
+
+  .Music {
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-right: 5px;
+  }
+
+  .Stories {
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-left: 5px;
+  }
+}

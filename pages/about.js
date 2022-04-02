@@ -1,10 +1,14 @@
 import classes from "../styles/About.module.css";
+import { useUsername } from "../store/UsernameProvider/UsernameProvider.js";
 
 export default function About({ title, ...props }) {
+  const { username } = useUsername();
+
   return (
     <div className={classes.About}>
       <h1>Hey</h1>
       <p>{title}</p>
+      <p>{username}</p>
     </div>
   );
 }

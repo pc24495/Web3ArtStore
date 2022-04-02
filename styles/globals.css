@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --header-height: 195px;
+}
+
+@font-face {
+  font-family: "Libre";
+  src: url("/fonts/LibreFranklin-Italic-VariableFont_wght.ttf") format("otf");
+}
