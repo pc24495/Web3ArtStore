@@ -7,11 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate-latest-dev": "npx knex migrate:latest --knexfile ./database/knexfile.js",
-    "migrate-latest-prod": "npx knex migrate:latest --env production --knexfile ./database/knexfile.js",
-    "migrate-down-all-dev": "npx knex migrate:rollback --all --knexfile ./database/knexfile.js",
-    "migrate-down-all-prod": "npx knex migrate:rollback --all --env production --knexfile ./database/knexfile.js",
-    "seed": "knex seed:run --env development --knexfile ./database/knexfile.js"
+    "migrate-latest-dev": "npx knex migrate:latest --knexfile ./knexfile.js",
+    "migrate-latest-prod": "npx knex migrate:latest --env production --knexfile ./knexfile.js",
+    "migrate-down-all-dev": "npx knex migrate:rollback --all --knexfile ./knexfile.js",
+    "migrate-down-all-prod": "npx knex migrate:rollback --all --env production --knexfile ./knexfile.js",
+    "seed": "knex seed:run --env development --knexfile ./knexfile.js"
   },
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.9",

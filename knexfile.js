@@ -1,8 +1,8 @@
 // Update with your config settings.
 const { knexSnakeCaseMappers } = require("objection");
-// const dotenv = require("dotenv");
-// dotenv.config();
-// dotenv.config({ path: "../.env.local" });
+const dotenv = require("dotenv");
+dotenv.config();
+// dotenv.config({ path: "./.env.local" });
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
@@ -22,9 +22,10 @@ module.exports = {
     },
     migrations: {
       tableName: "knex_migrations",
+      directory: "./database/migrations",
     },
     seeds: {
-      directory: "./seeds",
+      directory: "./database/seeds",
     },
   },
   production: {
@@ -36,9 +37,10 @@ module.exports = {
     },
     migrations: {
       tableName: "knex_migrations",
+      directory: "./database/migrations",
     },
     seeds: {
-      directory: "./seeds",
+      directory: "./database/seeds",
     },
   },
   ...knexSnakeCaseMappers,
