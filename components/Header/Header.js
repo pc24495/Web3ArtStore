@@ -3,6 +3,7 @@ import classes from "./Header.module.scss";
 import { BsLinkedin, BsTwitter } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
+import { HiMenu } from "react-icons/hi";
 
 const Header = () => {
   const [counter, setCounter] = useState(0);
@@ -23,6 +24,9 @@ const Header = () => {
       <div className={classes.SiteHeader}>
         <div className={classes.SiteHeaderInner}>
           <div className={classes.LayoutCenter}>
+            <div className={classes.MobileSidebarBurgerDiv}>
+              <HiMenu size={26}></HiMenu>
+            </div>
             <div className={classes.Navigation}>
               <GoSearch size={22}></GoSearch>
             </div>
@@ -36,8 +40,32 @@ const Header = () => {
                 style={{ marginLeft: "10px" }}
               ></IoBagOutline>
             </div>
+            <div className={classes.MobileIcons}>
+              <GoSearch size={24}></GoSearch>
+              <IoBagOutline
+                size={24}
+                style={{ marginLeft: "10px" }}
+              ></IoBagOutline>
+            </div>
           </div>
-          <div className={classes.TextCenter}></div>
+          <ul className={classes.TextCenter}>
+            <li>
+              <a>Album Drops</a>
+              <div></div>
+            </li>
+            <li>
+              <a>Art</a>
+            </li>
+            <li>
+              <a>Music</a>
+            </li>
+            <li>
+              <a>Photos</a>
+            </li>
+            <li>
+              <a>Stories</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
