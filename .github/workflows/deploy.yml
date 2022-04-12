@@ -10,6 +10,8 @@ jobs:
           node-version: "14"
       - run: npm install next
       - run: npm run migrate-latest-prod
+        env:
+          DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
       - run: npm run seed
       - run: npm run build
       - name: deploy site to vercel
