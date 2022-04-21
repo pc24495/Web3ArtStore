@@ -1,13 +1,13 @@
 // Update with your config settings.
 const { knexSnakeCaseMappers } = require("objection");
 const dotenv = require("dotenv");
-dotenv.config();
-// dotenv.config({ path: "./.env.local" });
+// dotenv.config();
+dotenv.config({ path: "./.env.local" });
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+console.log(process.env.PG_PASSWORD);
 
-console.log(process.env);
 module.exports = {
   development: {
     client: "postgresql",

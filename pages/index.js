@@ -21,6 +21,10 @@ export default function Home() {
           <a>Main Page</a>
         </Link>
 
+        <Link className={styles.title} href="/authtesting">
+          <a>Authentication Testing Page</a>
+        </Link>
+
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>

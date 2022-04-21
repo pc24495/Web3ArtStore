@@ -12,7 +12,6 @@ jobs:
       - run: npm run migrate-latest-prod
         env:
           DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
-      - run: npm run seed
       - run: npm run build
       - name: deploy site to vercel
         uses: amondnet/vercel-action@v20
