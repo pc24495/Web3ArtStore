@@ -25,6 +25,14 @@ export default function Home() {
           <a>Authentication Testing Page</a>
         </Link>
 
+        <Link className={styles.title} href="/prismatestingproducts">
+          <a>Prisma Testing Page Products</a>
+        </Link>
+
+        <Link className={styles.title} href="/prismatestingusers">
+          <a>Prisma Testing Page Users</a>
+        </Link>
+
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>

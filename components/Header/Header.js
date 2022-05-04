@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <nav className={classes.Header}>
       <div className={classes.AnnouncementBar}>
-        FREE STANDARD SHIPPING ON ORDERS OVER $49
+        NEW USERS GET $5 IN CREDITS WITH THEIR FIRST PURCHASE!
       </div>
       <div className={classes.Socials}>
         <a href="https://www.linkedin.com/in/prajwal-c/">
