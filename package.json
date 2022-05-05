@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "dev-https": "local-ssl-proxy --key localhost-key.pem --cert localhost.pem --source 4001 --target 3001",
-    "build": "next build next ",
-    "start": "next start next",
+    "build": "next build ",
+    "start": "next start",
     "lint": "next lint",
     "migrate-latest-dev": "npx knex migrate:latest --knexfile ./knexfile.js",
     "migrate-latest-prod": "npx knex migrate:latest --env production --knexfile ./knexfile.js",
