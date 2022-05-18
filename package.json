@@ -12,6 +12,7 @@
     "migrate-latest-prod": "npx knex migrate:latest --env production --knexfile ./knexfile.js",
     "migrate-down-all-dev": "npx knex migrate:rollback --all --knexfile ./knexfile.js",
     "migrate-down-all-prod": "npx knex migrate:rollback --all --env production --knexfile ./knexfile.js",
+    "migrate-dev": "npx prisma migrate dev",
     "seed": "knex seed:run --env development --knexfile ./knexfile.js"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@mapbox/node-pre-gyp": "^1.0.9",
     "@prisma/client": "^3.13.0",
     "@vscode/sqlite3": "^5.0.8",
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-openid-connect": "^2.7.2",
