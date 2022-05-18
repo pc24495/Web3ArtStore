@@ -3,17 +3,16 @@ const { prisma } = require("../../../db/index.ts");
 const SALT_ROUNDS = 10;
 
 async function register(request, response) {
-  bcrypt.hash(password, SALT_ROUNDS, (err, hash) => {
-
+  bcrypt.hash(password, SALT_ROUNDS, async (err, hash) => {
     const username = request.body.username;
     const password = request.body.password;
 
     await prisma.user.create({
-        data: {
-          name: 'Alice',
-          email: 'alice@prisma.io',
-        },
-      })
+      data: {
+        name: "Alice",
+        email: "alice@prisma.io",
+      },
+    });
 
     db.query(
       "INSERT INTO users(username, password) values($1,$2) RETURNING *",
