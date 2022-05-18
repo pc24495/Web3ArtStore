@@ -14,7 +14,7 @@
   background-color: orange;
 }
 
-.Pets {
+.PetsIndiv {
   height: 100%;
   width: 100%;
   background-color: orange;
@@ -22,20 +22,4 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.PetContainer {
-  height: 70px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  width: 80%;
-  background-color: orangered;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.PetContainer:hover {
-  background-color: pink;
 }
