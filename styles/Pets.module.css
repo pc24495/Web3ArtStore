@@ -11,11 +11,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: orangered;
+  background-color: orange;
 }
 
 .Pets {
   height: 100%;
   width: 100%;
-  background-color: blue;
+  background-color: orange;
+  display: flex;
+}
+
+.PetContainer {
+  width: 100%;
 }

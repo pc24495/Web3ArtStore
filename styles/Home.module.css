@@ -10,14 +10,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: orangered;
+  background-color: orange;
 }
 
 .Block1 {
   width: 70%;
   height: 300px;
   border-radius: 50px;
-  background-color: orange;
+  background-color: yellow;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
