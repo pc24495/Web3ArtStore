@@ -1,0 +1,21 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  padding: 0rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: orangered;
+}
+
+.Pets {
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
