@@ -32,9 +32,9 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <form className={styles.Block1} onSubmit={logginFunc}>
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input className={styles.UsernameInput} id="username"></input>
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input className={styles.PasswordInput} id="password"></input>
           {logginError && <p>Wrong username/password!</p>}
           <button>Submit</button>

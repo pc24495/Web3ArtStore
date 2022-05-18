@@ -19,8 +19,13 @@
   width: 100%;
   background-color: orange;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .PetContainer {
-  width: 100%;
+  width: 80%;
+  background-color: orangered;
+  border-radius: 20px;
 }

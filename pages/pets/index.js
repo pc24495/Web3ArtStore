@@ -8,6 +8,7 @@ export default function Pets({ title, ...props }) {
       <main className={styles.main}>
         <div className={styles.Pets}>
           <div className={styles.PetContainer}></div>
+          <div className={styles.PetContainer}></div>
         </div>
       </main>
     </div>
