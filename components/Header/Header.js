@@ -4,14 +4,14 @@ import { BsLinkedin, BsTwitter } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
+import { useUsername } from "../../store/UsernameProvider/UsernameProvider.js";
+import Link from "next/link";
 
 const Header = () => {
-  const [counter, setCounter] = useState(0);
-
   return (
     <nav className={classes.Header}>
       <div className={classes.AnnouncementBar}>
-        NEW USERS GET $5 IN CREDITS WITH THEIR FIRST PURCHASE!
+        NEW USERS GET $5 IN CREDITS WITH THEIR FIRST PURCHASE!{" "}
       </div>
       <div className={classes.Socials}>
         <a href="https://www.linkedin.com/in/prajwal-c/">
@@ -31,10 +31,13 @@ const Header = () => {
               <GoSearch size={22}></GoSearch>
             </div>
             <div className={classes.Logo}>
-              <h3>Web3ArtStore</h3>
+              <Link href="/">
+                <h3>Web3ArtStore</h3>
+              </Link>
             </div>
             <div className={classes.Icons}>
               <IoPersonOutline size={24}></IoPersonOutline>
+
               <IoBagOutline
                 size={24}
                 style={{ marginLeft: "10px" }}

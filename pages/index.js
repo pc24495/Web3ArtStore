@@ -1,45 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+// import Head from "next/head";
+// import Image from "next/image";
+// import Link from "next/link";
+// import { useRouter } from "next/router";
+// import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const router = useRouter();
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [logginError, setLogginError] = useState(false);
-
-  useEffect(() => {
-    if (loggedIn) {
-      router.push("/pets");
-    }
-  }, [loggedIn]);
-
-  const logginFunc = (event) => {
-    event.preventDefault();
-    console.log(event.target.elements.username.value);
-
-    if (
-      event.target.elements.username.value === "Tanuja" &&
-      event.target.elements.password.value === "SecretPassword"
-    ) {
-      router.push("/pets");
-    }
-  };
+  // const router = useRouter();
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
-        <form className={styles.Block1} onSubmit={logginFunc}>
-          <label htmlFor="username">Username</label>
-          <input className={styles.UsernameInput} id="username"></input>
-          <label htmlFor="password">Password</label>
-          <input className={styles.PasswordInput} id="password"></input>
-          {logginError && <p>Wrong username/password!</p>}
-          <button>Submit</button>
-        </form>
-      </main>
+      <main className={styles.main}></main>
     </div>
   );
 }
