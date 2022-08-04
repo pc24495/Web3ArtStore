@@ -12,7 +12,8 @@ jobs:
       # - run: npm run migrate-down-all-prod
       #   env:
       #     DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
-      - run: npm run migrate-dev
+      - run: npm install
+      - run: npm run migrate-deploy
         env:
           DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
       - run: npm run build
