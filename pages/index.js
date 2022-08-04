@@ -20,7 +20,7 @@ export default function Main({ title, ...props }) {
       <div className={classes.AnnouncementBar}>
         <span className={classes.AnnouncementBarInner}>
           <h3>BUY ONLINE AND PICK UP IN STORE</h3>
-          <p>Learn more about crypto and NFTs!</p>
+          <p>Learn more about crypto and NFTs!!</p>
         </span>
       </div>
       <div className={classes.ArtPhotosMusicTokens}>
