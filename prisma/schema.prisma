@@ -15,6 +15,7 @@ model Product {
   name String
   author User? @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId Int
+  testField Int
 }
 
 model User {

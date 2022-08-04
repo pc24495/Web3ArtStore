@@ -9,7 +9,10 @@ jobs:
         with:
           node-version: "14"
       - run: npm install next
-      - run: npm run migrate-down-all-prod
+      # - run: npm run migrate-down-all-prod
+      #   env:
+      #     DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
+      - run: npm run migrate-dev
         env:
           DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
       - run: npm run build
