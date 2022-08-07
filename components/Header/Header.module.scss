@@ -100,7 +100,16 @@
         position: relative;
         box-sizing: border-box;
 
-        svg:hover {
+        .PersonIconContainer {
+          // Question: why does the height of this element become 27px when I don't specify a height
+          height: 24px;
+        }
+
+        .PersonIconContainer svg:hover {
+          cursor: pointer;
+        }
+
+        .BagIcon:hover {
           cursor: pointer;
         }
       }

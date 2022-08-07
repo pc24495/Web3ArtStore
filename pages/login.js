@@ -2,7 +2,7 @@ import classes from "../styles/Login.module.css";
 import { useUsername } from "../store/UsernameProvider/UsernameProvider.js";
 
 export default function Login() {
-  const { username } = useUsername();
+  const { username } = "pc";
 
   return (
     <div className={classes.Login}>

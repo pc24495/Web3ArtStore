@@ -36,10 +36,14 @@ const Header = () => {
               </Link>
             </div>
             <div className={classes.Icons}>
-              <IoPersonOutline size={24}></IoPersonOutline>
-
+              <Link href="/login">
+                <a className={classes.PersonIconContainer}>
+                  <IoPersonOutline size={24}></IoPersonOutline>
+                </a>
+              </Link>
               <IoBagOutline
                 size={24}
+                className={classes.BagIcon}
                 style={{ marginLeft: "10px" }}
               ></IoBagOutline>
             </div>
