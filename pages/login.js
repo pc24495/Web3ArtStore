@@ -1,13 +1,10 @@
 import classes from "../styles/Login.module.css";
-import { useUsername } from "../store/UsernameProvider/UsernameProvider.js";
+import LoginComponent from "../components/Login/Login.js";
 
 export default function Login() {
-  const { username } = "pc";
-
   return (
-    <div className={classes.Login}>
-      <h1>Hey</h1>
-      <p>{username}</p>
+    <div className={classes.LoginPage}>
+      <LoginComponent></LoginComponent>
     </div>
   );
 }

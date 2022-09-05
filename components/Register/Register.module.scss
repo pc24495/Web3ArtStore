@@ -1,0 +1,82 @@
+.Register {
+  width: 370px;
+  position: relative;
+  top: 5vh;
+
+  header {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-family: "Prompt", sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+
+  label {
+    display: block;
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    width: 100%;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    letter-spacing: 2.4px;
+    margin-top: 30px;
+  }
+
+  label:first-of-type {
+    margin-top: 0px;
+  }
+
+  input {
+    width: 100%;
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 9px;
+    height: 43px;
+    padding: 8px 10px;
+    // margin-bottom: 30px;
+    margin-bottom: 0px;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  input:focus {
+    outline: none;
+    // border: none;
+  }
+
+  button {
+    text-transform: capitalize;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 13px 20px;
+    border: none;
+    background-color: white;
+    font-family: "Prompt", sans-serif;
+    margin-bottom: 15px;
+    margin-top: 30px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  p {
+    margin-top: 3px;
+    margin-bottom: -20px;
+    font-size: 15px;
+    color: red;
+  }
+
+  .ConfirmPasswordError {
+    margin-bottom: 0px;
+  }
+}

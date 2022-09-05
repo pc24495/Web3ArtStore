@@ -1,13 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./Header.module.scss";
 import { BsLinkedin, BsTwitter } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
-import { useUsername } from "../../store/UsernameProvider/UsernameProvider.js";
+import { MdLogout } from "react-icons/md";
+// import { useUsername } from "../../store/UsernameProvider/UsernameProvider.js";
 import Link from "next/link";
+import axios from "../../axios.js";
+import { useUserData } from "../../store/UserDataProvider/UserDataProvider.js";
+import { Image as CloudinaryImage } from "cloudinary-react";
 
-const Header = () => {
+const Header = (props) => {
+  const { userData, setUserData } = useUserData();
+  const [usernameIsHovering, setUsernameIsHovering] = useState(false);
+  useEffect(() => {
+    console.log("Header rerender");
+    axios.get("/users").then((response) => {
+      console.log(response.data.user);
+      if (response.data.user) {
+        setUserData((prev) => {
+          return {
+            ...prev,
+            username: response.data.user.username,
+            profile_pic_cloudinary_public_id:
+              response.data.user.profile_pic_cloudinary_public_id,
+            user_id: response.data.user.id,
+          };
+        });
+      }
+    });
+  }, []);
+
+  const hoverUsername = (event) => {
+    setUsernameIsHovering(true);
+  };
+
+  const blurUsername = (event) => {
+    setUsernameIsHovering(false);
+  };
+
+  const logout = async (event) => {
+    await setUsernameIsHovering(false);
+    await setUserData((prev) => {
+      return {
+        ...prev,
+        username: null,
+        profile_pic_cloudinary_public_id: null,
+        user_id: null,
+      };
+    });
+    axios.post("/logout");
+  };
+
   return (
     <nav className={classes.Header}>
       <div className={classes.AnnouncementBar}>
@@ -36,11 +81,32 @@ const Header = () => {
               </Link>
             </div>
             <div className={classes.Icons}>
-              <Link href="/login">
-                <a className={classes.PersonIconContainer}>
-                  <IoPersonOutline size={24}></IoPersonOutline>
-                </a>
-              </Link>
+              {userData.profile_pic_cloudinary_public_id ? (
+                <CloudinaryImage cloudName="dk1q4n7bt"></CloudinaryImage>
+              ) : null}
+              {userData.username ? (
+                <div
+                  className={classes.UsernameContainer}
+                  onMouseOver={hoverUsername}
+                  onMouseLeave={blurUsername}
+                >
+                  <p className={classes.Username}>{userData.username}</p>
+                  <div
+                    className={classes.UsernameDropdown}
+                    style={{ display: usernameIsHovering ? "flex" : "none" }}
+                    onClick={logout}
+                  >
+                    {" "}
+                    <MdLogout></MdLogout> Logout
+                  </div>
+                </div>
+              ) : (
+                <Link href="/login">
+                  <a className={classes.PersonIconContainer}>
+                    <IoPersonOutline size={24}></IoPersonOutline>
+                  </a>
+                </Link>
+              )}
               <IoBagOutline
                 size={24}
                 className={classes.BagIcon}
