@@ -14,23 +14,23 @@ import { Image as CloudinaryImage } from "cloudinary-react";
 const Header = (props) => {
   const { userData, setUserData } = useUserData();
   const [usernameIsHovering, setUsernameIsHovering] = useState(false);
-  useEffect(() => {
-    console.log("Header rerender");
-    axios.get("/users").then((response) => {
-      console.log(response.data.user);
-      if (response.data.user) {
-        setUserData((prev) => {
-          return {
-            ...prev,
-            username: response.data.user.username,
-            profile_pic_cloudinary_public_id:
-              response.data.user.profile_pic_cloudinary_public_id,
-            user_id: response.data.user.id,
-          };
-        });
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   console.log("Header rerender");
+  //   axios.get("/users").then((response) => {
+  //     console.log(response.data.user);
+  //     if (response.data.user) {
+  //       setUserData((prev) => {
+  //         return {
+  //           ...prev,
+  //           username: response.data.user.username,
+  //           profile_pic_cloudinary_public_id:
+  //             response.data.user.profile_pic_cloudinary_public_id,
+  //           user_id: response.data.user.id,
+  //         };
+  //       });
+  //     }
+  //   });
+  // }, []);
 
   const hoverUsername = (event) => {
     setUsernameIsHovering(true);
@@ -127,7 +127,7 @@ const Header = (props) => {
               <div></div>
             </li>
             <li>
-              <a>Art</a>
+              <Link href="/nfts">Dall-e 2</Link>
             </li>
             <li>
               <a>Music</a>

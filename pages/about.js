@@ -1,4 +1,5 @@
 import classes from "../styles/About.module.css";
+import Layout from "../components/higher order components/Layout.js";
 
 export default function About({ title, ...props }) {
   return (
@@ -19,3 +20,7 @@ export async function getStaticProps() {
     },
   };
 }
+
+About.getLayout = function getLayout(page) {
+  return <Layout>{page} </Layout>;
+};

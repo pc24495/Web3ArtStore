@@ -4,6 +4,7 @@
 // import { useRouter } from "next/router";
 // import { useState, useEffect } from "react";
 import Image from "next/image";
+import Layout from "../components/higher order components/Layout.js";
 import classes from "../styles/Main.module.css";
 
 export default function Main({ title, ...props }) {
@@ -137,6 +138,10 @@ export default function Main({ title, ...props }) {
     </div>
   );
 }
+
+Main.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 
 // <main className={styles.main}>
 // <div></div>

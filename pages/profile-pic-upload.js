@@ -6,6 +6,7 @@ import Backdrop from "../components/Backdrop/Backdrop.js";
 import ReactEasyCrop from "react-easy-crop";
 import axios from "../axios.js";
 import { useRouter } from "next/router";
+import Layout from "../components/higher order components/Layout.js";
 
 export default function ProfilePicUpload() {
   //   const { username } = useUsername();
@@ -197,3 +198,7 @@ export default function ProfilePicUpload() {
     </div>
   );
 }
+
+ProfilePicUpload.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
