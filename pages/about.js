@@ -22,5 +22,5 @@ export async function getStaticProps() {
 }
 
 About.getLayout = function getLayout(page) {
-  return <Layout>{page} </Layout>;
+  return <Layout> {page} </Layout>;
 };

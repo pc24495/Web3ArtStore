@@ -94,7 +94,7 @@ const Register = () => {
           Passwords don&apost match{" "}
         </p>
       )}
-      <button type="submit">Sign In</button>
+      <button type="submit">Create Account</button>
     </form>
   );
 };

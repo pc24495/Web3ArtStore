@@ -3,6 +3,7 @@ import Layout from "../components/higher order components/Layout.js";
 import classes from "../styles/NFT.module.css";
 
 // import LoginComponent from "../components/Login/Login.js";
+import NFTPage from "../components/NFTPage/NFTPage.js";
 import { useRouter } from "next/router";
 
 export default function Nfts() {
@@ -12,7 +13,11 @@ export default function Nfts() {
     console.log(router.query);
   }
 
-  return <div className={classes.NFTs}></div>;
+  return (
+    <div className={classes.NFTs}>
+      <NFTPage></NFTPage>
+    </div>
+  );
 }
 
 Nfts.getLayout = function getLayout(page) {
