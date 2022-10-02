@@ -1,8 +1,5 @@
-// import classes from "../styles/Login.module.css";
-import Layout from "../components/higher order components/Layout.js";
+import AlwaysMobileLayout from "../components/higher order components/AlwaysMobileLayout.js";
 import classes from "../styles/NFT.module.css";
-
-// import LoginComponent from "../components/Login/Login.js";
 import NFTPage from "../components/NFTPage/NFTPage.js";
 import { useRouter } from "next/router";
 
@@ -21,5 +18,5 @@ export default function Nfts() {
 }
 
 Nfts.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
+  return <AlwaysMobileLayout>{page}</AlwaysMobileLayout>;
 };

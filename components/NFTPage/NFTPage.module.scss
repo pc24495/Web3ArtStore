@@ -4,14 +4,17 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
-  padding: 00px 24px 0px 24px;
+  padding: 0px 24px 0px 24px;
   width: 100%;
   position: relative;
   top: 0px;
+  // overflow-y: hidden;
 
   .Header {
     width: 100%;
     background-color: white;
+    flex-direction: row;
+    // justify-content: ;
 
     h2 {
       margin: 0px 0px 15px 0px;
@@ -25,6 +28,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    // overflow-y: hidden;
 
     .DesktopNavigation {
       width: 326px;
@@ -49,6 +53,9 @@
           font-size: 18px;
           font-weight: 600;
           line-height: 18px;
+          font-family: "SF Pro Text", BlinkMacSystemFont, -apple-system,
+            "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+            "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         .SidebarIcon {
@@ -58,16 +65,85 @@
           cursor: pointer;
         }
       }
+
+      .MadeWithSectionDesktop {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .MadeWithHeaderSection {
+          width: 100%;
+          padding: 10px 16px 10px 12px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .MadeWithHeader {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 18px;
+            font-family: "SF Pro Text", BlinkMacSystemFont, -apple-system,
+              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+              "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          }
+
+          .MadeWithCaret {
+            transform: rotate(-180deg);
+            transition: transform 0.2s;
+          }
+        }
+
+        .MadeWithHeaderSection:hover {
+          background-color: #e6e3e3;
+        }
+
+        .MadeWithHeaderSection:hover {
+          cursor: pointer;
+        }
+
+        .MadeWithMainSection {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          .TypeCheckboxLabel {
+            display: inline-flex;
+            cursor: pointer;
+            position: relative;
+            flex-direction: row;
+            align-items: center;
+
+            span {
+              color: #34495e;
+              padding: 0.5rem 0.25rem;
+              font-size: 16px;
+              line-height: 16px;
+              font-weight: 500;
+            }
+
+            input {
+              margin-left: 12px;
+              height: 25px;
+              width: 25px;
+            }
+          }
+        }
+      }
     }
 
     .NFTsSection {
       display: flex;
       flex: 1;
       background-color: white;
-      height: 368px;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
+      overflow-y: hidden;
+      // min-height: 0px;
+      position: relative;
 
       .NFTsHeader {
         width: 100%;
@@ -77,18 +153,21 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        display: none;
+        // display: none;
 
         .FilterButtonDesktop {
           padding: 7px 20px;
           border: 1px solid black;
           margin: 0px 10px 0px 0px;
           border-radius: 30px;
-          font-size: 24px;
-          line-height: 24px;
+          font-size: 20px;
+          line-height: 20px;
           display: flex;
           align-items: center;
           justify-content: center;
+          font-family: "SF Pro Text", BlinkMacSystemFont, -apple-system,
+            "Segoe UI", Roboto;
+          font-weight: 600;
 
           .FilterIconHeader {
             margin-right: 5px;
@@ -98,11 +177,34 @@
         .FilterButtonDesktop:hover {
           cursor: pointer;
         }
+
+        .SortButtonDesktop {
+          padding: 7px 20px;
+          border: 1px solid black;
+          margin: 0px 10px 0px 0px;
+          border-radius: 30px;
+          font-size: 20px;
+          line-height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "SF Pro Text", BlinkMacSystemFont, -apple-system,
+            "Segoe UI", Roboto;
+          font-weight: 600;
+
+          .SortIcon {
+            margin-right: 5px;
+          }
+        }
+
+        .SortButtonDesktop:hover {
+          cursor: pointer;
+        }
       }
 
       .NFTs {
         width: 100%;
-        flex: 1;
+        flex-grow: 1;
         background-color: white;
         display: flex;
         flex-wrap: wrap;
@@ -409,6 +511,67 @@
           }
         }
       }
+
+      .NFTsLoadingBox {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .MobileFilters {
+    position: absolute;
+    top: -95px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 500;
+    flex-direction: column;
+
+    .MobileFiltersMain {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .MobileFiltersHeader {
+        padding: 16px 32px 12px 32px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .MobileFilterIconBox {
+          display: flex;
+          flex-direction: row;
+
+          .MobileFilterIcon {
+            margin-right: 8px;
+          }
+
+          .MobileFilterLabel {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0px;
+            line-height: 18px;
+          }
+        }
+
+        .MobileFilterCloseButton {
+        }
+
+        .MobileFilterCloseButton:hover {
+          cursor: pointer;
+        }
+      }
+
+      .MobileFiltersHeader:hover {
+        background-color: lightblue;
+      }
     }
   }
 }
@@ -457,6 +620,8 @@
 
 @media (max-width: 990px) {
   .NFTPage {
+    padding: 0px 36px 0px 36px;
+
     .MainSection {
       .DesktopNavigation {
         display: none;
@@ -491,6 +656,54 @@
 
                 .InformationBox {
                   height: 40%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .NFTPage {
+    .MainSection {
+      .DesktopNavigation {
+        display: none;
+      }
+
+      .NFTsSection {
+        height: 100vh;
+
+        .NFTs {
+          .NFTSidebarOn {
+            width: 50%;
+
+            .NFTSidebarOnInner {
+              .NFTSidebarOnInnerInner {
+                .ImageContainer {
+                  height: 75%;
+                }
+
+                .InformationBox {
+                  height: 25%;
+                }
+              }
+            }
+          }
+
+          .NFTSidebarOff {
+            width: 100%;
+
+            .NFTSidebarOffInner {
+              .NFTSidebarOffInnerInner {
+                .ImageContainer {
+                  height: 75%;
+                }
+
+                .InformationBox {
+                  height: 25%;
                 }
               }
             }
@@ -555,6 +768,16 @@
       }
 
       .NFTsSection {
+        .NFTsHeader {
+          .FilterButtonDesktop {
+            padding: 5px 16px;
+          }
+
+          .SortButtonDesktop {
+            padding: 5px 16px;
+          }
+        }
+
         .NFTs {
           .NFTSidebarOn {
             width: 100%;
@@ -592,17 +815,3 @@
     }
   }
 }
-
-// @media (max-width: 1200px) {
-//     .NFTPage {
-//         .MainSection {
-//             .NFTsSection {
-//                 .NFTs {
-//                     .NFTSidebarOn {
-
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
