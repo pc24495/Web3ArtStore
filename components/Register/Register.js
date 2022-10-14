@@ -23,7 +23,7 @@ const Register = () => {
           return {
             ...prevUser,
             username: response.data.user.username,
-            id: response.data.user.id,
+            user_id: response.data.user.id,
             profile_pic_cloudinary_public_id:
               response.data.user.profile_pic_cloudinary_public_id,
           };

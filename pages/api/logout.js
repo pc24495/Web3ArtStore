@@ -1,9 +1,3 @@
-// import handler from "../../backend_functions/helpers/nc.js";
-// import { logout } from "../../backend_functions/routes/logout/logoutPost.js";
-// import { verifyJWT } from "../../backend_functions/middleware/authenticate2.js";
-
-// export default handler.post(registerValidator(register));
-// export default handler.post(verifyJWT, logout);
 import { serialize } from "cookie";
 
 export default async function (req, res) {

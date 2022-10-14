@@ -6,9 +6,7 @@ const DataLoader = (props) => {
   const { setUserData } = useUserData();
 
   useEffect(() => {
-    console.log("Data loader rerender");
     axios.get("/users").then((response) => {
-      console.log(response.data.user);
       if (response.data.user) {
         setUserData((prev) => {
           return {

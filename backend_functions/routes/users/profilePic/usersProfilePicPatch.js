@@ -1,10 +1,9 @@
 const { prisma } = require("../../../../db/index.ts");
 
 async function usersProfilePicPatch(request, response) {
-  console.log("Hey");
   const { profile_pic } = request.body;
   const { userID } = request;
-  var formData = new URLSearchParams();
+  const formData = new URLSearchParams();
   formData.append("file", profile_pic);
   formData.append("upload_preset", `web-3-art-store`);
   formData.append("folder", `web-3-art-store/${process.env.NODE_ENV}`);

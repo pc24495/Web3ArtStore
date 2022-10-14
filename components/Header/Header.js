@@ -14,23 +14,6 @@ import { Image as CloudinaryImage } from "cloudinary-react";
 const Header = (props) => {
   const { userData, setUserData } = useUserData();
   const [usernameIsHovering, setUsernameIsHovering] = useState(false);
-  // useEffect(() => {
-  //   console.log("Header rerender");
-  //   axios.get("/users").then((response) => {
-  //     console.log(response.data.user);
-  //     if (response.data.user) {
-  //       setUserData((prev) => {
-  //         return {
-  //           ...prev,
-  //           username: response.data.user.username,
-  //           profile_pic_cloudinary_public_id:
-  //             response.data.user.profile_pic_cloudinary_public_id,
-  //           user_id: response.data.user.id,
-  //         };
-  //       });
-  //     }
-  //   });
-  // }, []);
 
   const hoverUsername = (event) => {
     setUsernameIsHovering(true);
@@ -39,6 +22,8 @@ const Header = (props) => {
   const blurUsername = (event) => {
     setUsernameIsHovering(false);
   };
+
+  // console.log(userData);
 
   const logout = async (event) => {
     await setUsernameIsHovering(false);
@@ -90,7 +75,12 @@ const Header = (props) => {
                   onMouseOver={hoverUsername}
                   onMouseLeave={blurUsername}
                 >
-                  <p className={classes.Username}>{userData.username}</p>
+                  <Link
+                    className={classes.Username}
+                    href={`/admin/${userData.user_id}`}
+                  >
+                    {userData.username}
+                  </Link>
                   <div
                     className={classes.UsernameDropdown}
                     style={{ display: usernameIsHovering ? "flex" : "none" }}

@@ -204,11 +204,12 @@
 
       .NFTs {
         width: 100%;
-        flex-grow: 1;
+        // flex-grow: 1;
         background-color: white;
         display: flex;
         flex-wrap: wrap;
         overflow-y: scroll;
+        height: calc(100vh - 186px);
         // margin-left: -12px;
 
         .NFTSidebarOn {
@@ -510,6 +511,36 @@
             }
           }
         }
+
+        .NFTLoadingBox {
+          background-color: white;
+          width: 33.3333%;
+          //   aspect-ratio: 50 / 50;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+
+          .NFTLoadingBoxInner {
+            width: 100%;
+            background-color: white;
+            padding: 0px 12px 0px 12px;
+
+            .NFTLoadingBoxInnerInner {
+              height: 100%;
+              width: 100%;
+              border-radius: 20px;
+              overflow: hidden;
+              background-color: white;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
       }
 
       .NFTsLoadingBox {
@@ -612,6 +643,10 @@
               }
             }
           }
+
+          .NFTLoadingBox {
+            width: 50%;
+          }
         }
       }
     }
@@ -659,6 +694,10 @@
                 }
               }
             }
+          }
+
+          .NFTLoadingBox {
+            width: 50%;
           }
         }
       }
@@ -708,6 +747,10 @@
               }
             }
           }
+
+          .NFTLoadingBox {
+            width: 50%;
+          }
         }
       }
     }
@@ -753,6 +796,10 @@
                 }
               }
             }
+          }
+
+          .NFTLoadingBox {
+            width: 100%;
           }
         }
       }
@@ -809,6 +856,10 @@
                 }
               }
             }
+          }
+
+          .NFTLoadingBox {
+            width: 100%;
           }
         }
       }

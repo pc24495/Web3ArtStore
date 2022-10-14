@@ -12,15 +12,17 @@ import { BsFilterCircle } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { BiSort } from "react-icons/bi";
 import { AiOutlineDown } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Dna } from "react-loader-spinner";
+import isDeepEqual from "../../helpers/isDeepEqual.js";
+import qs from "qs";
+import madeWithOptions from "../../configs/madeWith.js";
 
 const NFTPage = () => {
   const [showDesktopSidebar, setShowDesktopSidebar] = useState(true);
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
   const [showTypeFilters, setShowTypeFilters] = useState(true);
-  const madeWithOptions = ["DALL-E 2", "ArtBreeder", "NightCafe"];
   const mockNFT = {
     numEditions: 2,
     name: "Loaded Lion 5692",
@@ -28,11 +30,11 @@ const NFTPage = () => {
     madeWith: "DALL-E 2",
     user: "FriendlyRussian",
     profilePic: "/NFTPlaceholders/EpicPaintingOfRussiaAsGodsDream.png",
+    id: 5,
   };
   const [NFTState, setNFTState] = useState({
     NFTData: Array(7).fill(mockNFT),
     NFTs: Array(7).fill(mockNFT),
-    isLoading: false,
   });
   const [filters, setFilters] = useState({
     madeWith: [],
@@ -40,9 +42,72 @@ const NFTPage = () => {
     maxPrice: Number.MAX_SAFE_INTEGER,
     sortBy: "Alphabet",
   });
+  const [page, setPage] = useState(1);
+  const pageRef = useRef(1);
+  const filtersRef = useRef({
+    madeWith: [],
+    minPrice: 0,
+    maxPrice: Number.MAX_SAFE_INTEGER,
+    sortBy: "Alphabet",
+  });
+  const NFTLoader = useRef(null);
+  const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(async () => {
+    if (
+      !isDeepEqual(filters, filtersRef.current) ||
+      !(page === pageRef.current)
+    ) {
+      pageRef.current = page;
+      filtersRef.current = filters;
+      await setLoading(true);
+
+      let newNFTs = NFTState.NFTData.filter((NFT) => {
+        const { madeWith, minPrice, maxPrice } = filters;
+        return (
+          madeWith.includes(NFT.madeWith) &&
+          NFT.priceInCents >= minPrice &&
+          NFT.priceInCents <= maxPrice
+        );
+      });
+
+      if (newNFTs.length < 6) {
+        // console.log(NFTState.NFTData);
+        const res = await axios.get("/products", {
+          params: {
+            productIDs: NFTState.NFTData.map((product) => product.id),
+            filters,
+          },
+          paramsSerializer: (params) => {
+            return qs.stringify(params);
+          },
+        });
+
+      }
+    }
+  }, [page, filters]);
+
+  const handleObserver = useCallback((entries) => {
+    const target = entries[0];
+    if (target.isIntersecting) {
+      setPage((prev) => prev + 1);
+    }
+  }, []);
 
   useEffect(() => {
-    setMobileView(window.innerWidth <= 990);
+    const option = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 0.3,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (NFTLoader.current) observer.observe(NFTLoader.current);
+  }, [handleObserver]);
+
+  useEffect(async () => {
+    await setMobileView(window.innerWidth <= 990);
+    // await setNFTList();
   }, []);
 
   useEffect(() => {
@@ -106,6 +171,8 @@ const NFTPage = () => {
       return { ...prev, NFTs: newNFTs };
     });
   };
+
+  console.log("rerender");
 
   return (
     <div className={classes.NFTPage}>
@@ -187,10 +254,7 @@ const NFTPage = () => {
               Sort by:
             </button>
           </div>
-          <div
-            className={classes.NFTs}
-            style={{ display: NFTState.isLoading ? "none" : "flex" }}
-          >
+          <div className={classes.NFTs} style={{ display: "flex" }} id="NFTBox">
             {NFTState.NFTs.map((NFT, index) => {
               return (
                 <AspectRatio
@@ -266,19 +330,24 @@ const NFTPage = () => {
                 </AspectRatio>
               );
             })}
-          </div>
-          <div
-            className={classes.NFTsLoadingBox}
-            style={{ display: NFTState.isLoading ? "flex" : "none" }}
-          >
-            <Dna
-              visible={true}
-              height="80"
-              width="80"
-              ariaLabel="dna-loading"
-              wrapperStyle={{}}
-              wrapperClass="dna-wrapper"
-            />
+            <div
+              className={classes.NFTLoadingBox}
+              ref={NFTLoader}
+              style={{ display: "flex" }}
+            >
+              <div className={classes.NFTLoadingBoxInner}>
+                <div className={classes.NFTLoadingBoxInnerInner}>
+                  <Dna
+                    visible={true}
+                    height="120"
+                    width="120"
+                    ariaLabel="dna-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="dna-wrapper"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

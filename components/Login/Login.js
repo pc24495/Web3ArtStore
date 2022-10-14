@@ -20,14 +20,15 @@ const Login = () => {
         username: values.username,
         password: values.password,
       })
-      .then((response) => {
+      .then(async (response) => {
         // console.log(response.data);
         // console.log(response.data.user);
-        setUserData((prevUser) => {
+        await setUserData((prevUser) => {
+          // console.log(response.data.user.id);
           return {
             ...prevUser,
             username: response.data.user.username,
-            id: response.data.user.id,
+            user_id: response.data.user.id,
             profile_pic_cloudinary_public_id:
               response.data.user.profile_pic_cloudinary_public_id,
           };

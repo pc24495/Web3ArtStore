@@ -20,7 +20,7 @@ export function verifyJWT(request, response, next) {
   } else {
     return response.status(401).json({
       auth: false,
-      message: "You did not provide a token authenticate2.js",
+      message: "You did not provide a token authenticate.js",
     });
   }
 }

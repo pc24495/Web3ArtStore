@@ -56,6 +56,7 @@ export default function ProfilePicUpload() {
     });
 
   const submitImage = (event) => {
+    console.log(state.croppedImageSrc);
     axios
       .patch("/users/profile-pic", {
         profile_pic: state.croppedImageSrc,
