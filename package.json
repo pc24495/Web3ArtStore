@@ -11,7 +11,8 @@
     "migrate-dev": "npx prisma migrate dev",
     "migrate-deploy": "npx prisma migrate deploy",
     "seed": "knex seed:run --env development --knexfile ./knexfile.js",
-    "prebuild": "prisma generate"
+    "prebuild": "prisma generate",
+    "validate": "npx prisma validate"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.7.0",
