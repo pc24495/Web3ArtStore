@@ -46,6 +46,8 @@ export default async function postProducts(request, response) {
     }
   }
 
+  console.log(process.ENV);
+
   if (areAllPropertiesNull(errorResponse)) {
     const formData = new URLSearchParams();
     formData.append("file", file);
