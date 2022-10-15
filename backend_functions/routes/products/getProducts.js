@@ -18,6 +18,10 @@ export default async function getProducts(request, response) {
 
   productIDs = productIDs.map((id) => parseInt(id));
 
+  if (!filters) {
+    return response.status(400).json({ success: false });
+  }
+
   if (!Number.isInteger(filters.minPrice)) {
     filters.minPrice = 0;
   }
