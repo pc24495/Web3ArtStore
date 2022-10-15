@@ -46,7 +46,8 @@ export default async function postProducts(request, response) {
     }
   }
 
-  console.log(process.ENV);
+  console.log(process.env.DATABASE_URL);
+  console.log(areAllPropertiesNull(errorResponse));
 
   if (areAllPropertiesNull(errorResponse)) {
     const formData = new URLSearchParams();
