@@ -1,0 +1,25 @@
+.NFTCardContainer {
+  position: relative;
+  width: 33.33%;
+  height: 300px;
+  padding: 20px;
+  background-color: orange;
+  display: block;
+  //   overflow: hidden;
+
+  .NFTCard {
+    float: left;
+    width: calc(100%);
+    height: 100%;
+    background-color: purple;
+  }
+
+  .NFTCard:hover {
+    position: absolute;
+    background-color: green;
+    height: calc(100% - 40px);
+    top: 20px;
+    width: 600px;
+    z-index: 200;
+  }
+}

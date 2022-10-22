@@ -10,10 +10,14 @@ import Link from "next/link";
 import axios from "../../axios.js";
 import { useUserData } from "../../store/UserDataProvider/UserDataProvider.js";
 import { Image as CloudinaryImage } from "cloudinary-react";
+import { AspectRatio } from "react-aspect-ratio";
+import NFTPreview from "./NFTPreview/NFTPreview.js";
+import cn from "classnames";
 
 const Header = (props) => {
   const { userData, setUserData } = useUserData();
   const [usernameIsHovering, setUsernameIsHovering] = useState(false);
+  const img_src = "/NFTPlaceholders/EpicPaintingOfRussiaAsGodsDream.png";
 
   const hoverUsername = (event) => {
     setUsernameIsHovering(true);
@@ -36,6 +40,27 @@ const Header = (props) => {
       };
     });
     axios.post("/logout");
+  };
+
+  const numPreviewConfigs = {
+    3: {
+      0: "ltr",
+      1: "ltr",
+      2: "rtl",
+    },
+    4: {
+      0: "ltr",
+      1: "ltr",
+      2: "rtl",
+      3: "rtl",
+    },
+    5: {
+      0: "ltr",
+      1: "ltr",
+      2: "ltr",
+      3: "rtl",
+      4: "rtl",
+    },
   };
 
   return (
@@ -114,7 +139,11 @@ const Header = (props) => {
           <ul className={classes.TextCenter}>
             <li>
               <a>Album Drops</a>
-              <div></div>
+              <div className={classes.AlbumDrops}>
+                <NFTPreview></NFTPreview>
+                <NFTPreview></NFTPreview>
+                <NFTPreview></NFTPreview>
+              </div>
             </li>
             <li>
               <Link href="/nfts">Dall-e 2</Link>

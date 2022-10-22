@@ -11,9 +11,13 @@ async function login(request, response) {
     misc: null,
   };
 
+  if (typeof username !== "string" || typeof password !== "string") {
+    return response.status(400).json({ success: false });
+  }
+
   const user = await prisma.user.findUnique({
     where: {
-      username,
+      username: username,
     },
   });
 

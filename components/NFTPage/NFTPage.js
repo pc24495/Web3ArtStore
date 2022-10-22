@@ -83,12 +83,12 @@ const NFTPage = () => {
             return qs.stringify(params);
           },
         });
-
       }
     }
   }, [page, filters]);
 
   const handleObserver = useCallback((entries) => {
+    console.log("handleObserver");
     const target = entries[0];
     if (target.isIntersecting) {
       setPage((prev) => prev + 1);
@@ -98,8 +98,8 @@ const NFTPage = () => {
   useEffect(() => {
     const option = {
       root: null,
-      rootMargin: "20px",
-      threshold: 0.3,
+      rootMargin: "0px",
+      threshold: 0.5,
     };
     const observer = new IntersectionObserver(handleObserver, option);
     if (NFTLoader.current) observer.observe(NFTLoader.current);
@@ -145,6 +145,7 @@ const NFTPage = () => {
   const showDesktopNavigation = showDesktopSidebar && !mobileView;
 
   const handleMadeWithChange = async (event) => {
+    await setLoading(true);
     let madeWithSet = new Set(filters.madeWith);
     let oldNFTs = NFTState.NFTData;
     let newNFTs;
@@ -349,6 +350,7 @@ const NFTPage = () => {
               </div>
             </div>
           </div>
+          <div className={classes.WhileFiltering}></div>
         </div>
       </div>
       <div
