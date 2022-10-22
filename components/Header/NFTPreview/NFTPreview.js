@@ -5,7 +5,10 @@ const NFTPreview = ({ direction, ...props }) => {
 
   return (
     <div className={classes.NFTCardContainer}>
-      <div className={classes.NFTCard}></div>
+      <div className={classes.NFTCard}>
+        <div className={classes.Image}></div>
+        <div className={classes.Info}></div>
+      </div>
     </div>
   );
 };

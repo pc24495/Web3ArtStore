@@ -12,6 +12,20 @@
     width: calc(100%);
     height: 100%;
     background-color: purple;
+    direction: flex;
+    flex-direction: row;
+
+    .Image {
+      height: 100%;
+      width: 100%;
+      background-color: blue;
+    }
+
+    .Info {
+      height: 100%;
+      width: 0%;
+      background-color: pink;
+    }
   }
 
   .NFTCard:hover {
@@ -19,7 +33,16 @@
     background-color: green;
     height: calc(100% - 40px);
     top: 20px;
-    width: 600px;
+    width: 180%;
     z-index: 200;
+    display: flex;
+
+    .Image {
+      width: 48.8%;
+    }
+
+    .Info {
+      width: 51.2%;
+    }
   }
 }
