@@ -4,10 +4,12 @@ const NFTPreview = ({ direction, ...props }) => {
   //Needs to unpack name, price, username of poster, profilepic of poster, number of editions, amount sold
 
   return (
-    <div className={classes.NFTCardContainer}>
+    <div className={classes.NFTCardContainer} style={{ direction }}>
       <div className={classes.NFTCard}>
         <div className={classes.Image}></div>
-        <div className={classes.Info}></div>
+        <div className={classes.Info}>
+          <div className={classes.InfoInner}></div>
+        </div>
       </div>
     </div>
   );

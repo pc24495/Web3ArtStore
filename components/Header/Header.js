@@ -140,9 +140,9 @@ const Header = (props) => {
             <li>
               <a>Album Drops</a>
               <div className={classes.AlbumDrops}>
-                <NFTPreview></NFTPreview>
-                <NFTPreview></NFTPreview>
-                <NFTPreview></NFTPreview>
+                <NFTPreview direction="ltr"></NFTPreview>
+                <NFTPreview direction="ltr"></NFTPreview>
+                <NFTPreview direction="rtl"></NFTPreview>
               </div>
             </li>
             <li>

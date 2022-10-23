@@ -1,6 +1,6 @@
 .NFTCardContainer {
   position: relative;
-  width: 33.33%;
+  width: 25%;
   height: 300px;
   padding: 20px;
   background-color: orange;
@@ -14,6 +14,8 @@
     background-color: purple;
     direction: flex;
     flex-direction: row;
+    border-radius: 30px;
+    overflow: hidden;
 
     .Image {
       height: 100%;
@@ -25,6 +27,21 @@
       height: 100%;
       width: 0%;
       background-color: pink;
+      transition: flex 0.22s;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .InfoInner {
+        width: 100%;
+        height: 100%;
+        background-color: indigo;
+        // display: none;
+        opacity: 0;
+        transition: opacity 0.2s linear 0.22s;
+      }
     }
   }
 
@@ -42,7 +59,64 @@
     }
 
     .Info {
-      width: 51.2%;
+      flex: 1;
+
+      .InfoInner {
+        display: flex;
+        opacity: 1;
+        background-color: brown;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .NFTCardContainer {
+    position: relative;
+    width: 33.333%;
+    height: 300px;
+    padding: 20px;
+    background-color: orange;
+    display: block;
+    //   overflow: hidden;
+
+    .NFTCard {
+      float: left;
+      width: calc(100%);
+      height: 100%;
+      background-color: purple;
+      direction: flex;
+      flex-direction: row;
+
+      .Image {
+        height: 100%;
+        width: 100%;
+        background-color: blue;
+      }
+
+      .Info {
+        height: 100%;
+        width: 0%;
+        background-color: pink;
+      }
+    }
+
+    .NFTCard:hover {
+      position: absolute;
+      background-color: green;
+      height: calc(100% - 40px);
+      top: 20px;
+      width: 180%;
+      z-index: 200;
+      display: flex;
+
+      .Image {
+        width: 48.8%;
+      }
+
+      .Info {
+        width: 51.2%;
+      }
     }
   }
 }
