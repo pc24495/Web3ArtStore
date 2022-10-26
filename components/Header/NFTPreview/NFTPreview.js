@@ -33,14 +33,24 @@ const NFTPreview = ({
     },
   });
 
+  //   <Image layout="fill" objectFit="cover" src={url}></Image>
+
   return (
     <div
       className={classes.NFTCardContainer}
       style={{ direction, display: display ? "block" : "none" }}
     >
       <div className={classes.NFTCard}>
-        <div className={classes.Image}>
-          <Image layout="fill" objectFit="cover" src={url}></Image>
+        <div
+          className={classes.ImageOuter}
+          style={{ backgroundImage: `url(${urlBlurred})` }}
+        >
+          <Image
+            layout="fill"
+            objectFit="cover"
+            src={url}
+            unoptimized={true}
+          ></Image>
         </div>
         <div className={classes.Info}>
           <div className={classes.InfoInner}>

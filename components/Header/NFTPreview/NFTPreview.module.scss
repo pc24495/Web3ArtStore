@@ -16,11 +16,12 @@
     border-radius: 30px;
     overflow: hidden;
 
-    .Image {
+    .ImageOuter {
       position: relative;
       height: 100%;
       width: 100%;
-      background-color: blue;
+      background-position: center center;
+      background-size: 100%;
     }
 
     .Info {
@@ -137,7 +138,7 @@
     z-index: 200;
     display: flex;
 
-    .Image {
+    .ImageOuter {
       width: 40%;
     }
 
@@ -178,7 +179,7 @@
       direction: flex;
       flex-direction: row;
 
-      .Image {
+      .ImageOuter {
         height: 100%;
         width: 100%;
         background-color: blue;
@@ -200,7 +201,7 @@
       z-index: 200;
       display: flex;
 
-      .Image {
+      .ImageOuter {
         width: 45%;
       }
 
