@@ -4,7 +4,7 @@ import isNumericInt from "../../helpers/isNumericInt.js";
 import madeWithOptions from "../../../configs/madeWith.js";
 
 export default async function getProducts(request, response) {
-  let { productIDs, filters, num } = qs.parse(request.query);
+  let { productIDs, filters, numResults } = qs.parse(request.query);
   console.log("1) Product IDs: ", productIDs, "\nFilters: ", filters);
 
   // Validation start
@@ -35,7 +35,7 @@ export default async function getProducts(request, response) {
   }
 
   if (!Array.isArray(filters.madeWith)) {
-    filters.madeWith = [];
+    filters.madeWith = madeWithOptions;
   }
 
   console.log("2) Product IDs: ", productIDs, "\nFilters: ", filters);
@@ -43,7 +43,28 @@ export default async function getProducts(request, response) {
   if (!filters.madeWith.every((option) => madeWithOptions.includes(option))) {
     return response.status(400).json({ success: false });
   }
+
+  if (!isNumericInt(numResults)) {
+    return response.status(400).json({ success: false });
+  } else {
+    numResults = parseInt(numResults);
+  }
   //Validation end
 
-  return response.status(200).json({ message: "Success!" });
+  console.log(filters.madeWith);
+
+  const products = await prisma.product.findMany({
+    take: numResults,
+    where: {
+      made_with: {
+        in: filters.madeWith,
+      },
+      price_in_cents: {
+        gt: filters.minPrice,
+        lt: 1000,
+      },
+    },
+  });
+
+  return response.status(200).json({ message: "Success!", products });
 }

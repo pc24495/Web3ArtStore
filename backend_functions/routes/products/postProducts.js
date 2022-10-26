@@ -3,6 +3,7 @@ import formidable from "formidable";
 import FormData from "form-data";
 import areAllPropertiesNull from "../../helpers/areAllPropertiesNull.js";
 import madeWithOptions from "../../../configs/madeWith.js";
+import { createIf } from "typescript";
 
 export default async function postProducts(request, response) {
   const {
@@ -16,6 +17,7 @@ export default async function postProducts(request, response) {
     madeWith: null,
     priceInCents: null,
     misc: null,
+    cloudinary: null,
   };
 
   if (!file) {
@@ -26,7 +28,7 @@ export default async function postProducts(request, response) {
     errorResponse.name = "Name is required";
   } else {
     if (name.length > 30) {
-      errorResponse.name = "Name must be <31 characters";
+      errorResponse.name = "Name must be <31 characters long";
     }
   }
 
@@ -46,10 +48,6 @@ export default async function postProducts(request, response) {
     }
   }
 
-  process.stdout.write(JSON.stringify(process.env.DATABASE_URL));
-  // console.log(areAllPropertiesNull(errorResponse));
-  console.log(userID);
-
   if (areAllPropertiesNull(errorResponse)) {
     const formData = new URLSearchParams();
     formData.append("file", file);
@@ -63,13 +61,21 @@ export default async function postProducts(request, response) {
       }
     )
       .then((cloudinaryResponse) => cloudinaryResponse.json())
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        errorResponse.cloudinary = error;
+        return response.status(400).json({ success: false, errorResponse });
+      });
+    if (cloudinaryResponse.error) {
+      errorResponse.cloudinary = cloudinaryResponse.error;
+      return response.status(400).json({ success: false, errorResponse });
+    }
     try {
       await prisma.product.create({
         data: {
           name,
           authorId: userID,
-          picture_cloudinary_public_id: cloudinaryResponse.public_id,
+          cloudinary_id: cloudinaryResponse.public_id,
           made_with: madeWith,
           price_in_cents: priceInCents,
         },

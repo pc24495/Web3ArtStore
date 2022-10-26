@@ -1,11 +1,10 @@
 .NFTCardContainer {
   position: relative;
-  width: 25%;
+  width: 20%;
   height: 300px;
   padding: 20px;
   background-color: orange;
   display: block;
-  //   overflow: hidden;
 
   .NFTCard {
     float: left;
@@ -18,6 +17,7 @@
     overflow: hidden;
 
     .Image {
+      position: relative;
       height: 100%;
       width: 100%;
       background-color: blue;
@@ -41,6 +41,89 @@
         // display: none;
         opacity: 0;
         transition: opacity 0.2s linear 0.22s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .MainSection {
+          width: 100%;
+
+          .Name {
+            font-family: "Prompt", sans-serif;
+            font-size: 25px;
+            line-height: 25px;
+            overflow: hidden;
+            margin: 0px;
+          }
+
+          .MainInfo {
+            .PriceAmountSold {
+              display: flex;
+              flex-direction: row;
+              margin-top: 20px;
+
+              .PriceBox {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin-right: 20px;
+
+                .PriceLabel {
+                  color: gray;
+                  font-size: 14px;
+                  line-height: 15px;
+                  font-weight: bold;
+                  margin: 0px;
+                  text-align: left;
+                }
+
+                .Price {
+                  font-size: 20px;
+                  line-height: 26px;
+                  font-weight: bold;
+                  margin: 0px;
+                }
+              }
+
+              .AmountSoldBox {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin-right: 20px;
+
+                .AmountSoldLabel {
+                  color: gray;
+                  font-size: 14px;
+                  line-height: 15px;
+                  font-weight: bold;
+                  margin: 0px;
+                  text-align: left;
+                }
+
+                .AmountSold {
+                  font-size: 20px;
+                  line-height: 26px;
+                  font-weight: bold;
+                  margin: 0px;
+                }
+              }
+            }
+
+            .EditionsViews {
+              display: flex;
+              flex-direction: row;
+            }
+          }
+        }
+
+        .UsernameSection {
+          width: 100%;
+          height: 40px;
+          background-color: black;
+        }
       }
     }
   }
@@ -50,23 +133,30 @@
     background-color: green;
     height: calc(100% - 40px);
     top: 20px;
-    width: 180%;
+    width: 220%;
     z-index: 200;
     display: flex;
 
     .Image {
-      width: 48.8%;
+      width: 40%;
     }
 
     .Info {
       flex: 1;
 
       .InfoInner {
+        direction: ltr;
         display: flex;
         opacity: 1;
-        background-color: brown;
+        background-color: white;
       }
     }
+  }
+}
+
+@media (max-width: 1300px) {
+  .NFTCardContainer {
+    width: 25%;
   }
 }
 
@@ -74,7 +164,7 @@
   .NFTCardContainer {
     position: relative;
     width: 33.333%;
-    height: 300px;
+    // height: 300px;
     padding: 20px;
     background-color: orange;
     display: block;
@@ -96,7 +186,7 @@
 
       .Info {
         height: 100%;
-        width: 0%;
+        // width: 0%;
         background-color: pink;
       }
     }
@@ -106,16 +196,16 @@
       background-color: green;
       height: calc(100% - 40px);
       top: 20px;
-      width: 180%;
+      width: 190%;
       z-index: 200;
       display: flex;
 
       .Image {
-        width: 48.8%;
+        width: 45%;
       }
 
       .Info {
-        width: 51.2%;
+        // width: 51.2%;
       }
     }
   }

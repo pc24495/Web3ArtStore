@@ -10,7 +10,6 @@ import Link from "next/link";
 import axios from "../../axios.js";
 import { useUserData } from "../../store/UserDataProvider/UserDataProvider.js";
 import { Image as CloudinaryImage } from "cloudinary-react";
-import { AspectRatio } from "react-aspect-ratio";
 import NFTPreview from "./NFTPreview/NFTPreview.js";
 import cn from "classnames";
 
@@ -18,6 +17,60 @@ const Header = (props) => {
   const { userData, setUserData } = useUserData();
   const [usernameIsHovering, setUsernameIsHovering] = useState(false);
   const img_src = "/NFTPlaceholders/EpicPaintingOfRussiaAsGodsDream.png";
+
+  const [numPreviews, setNumPreviews] = useState(5);
+  const testNFTs = [
+    {
+      name: "Russia as God's Dream",
+      price_in_cents: 1000,
+      price_in_cents_sold: 1000,
+      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+    },
+    {
+      name: "Russia as God's Dream",
+      price_in_cents: 1000,
+      price_in_cents_sold: 1000,
+      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+    },
+    {
+      name: "Russia as God's Dream",
+      price_in_cents: 1000,
+      price_in_cents_sold: 1000,
+      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+    },
+    {
+      name: "Russia as God's Dream",
+      price_in_cents: 1000,
+      price_in_cents_sold: 1000,
+      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+    },
+    {
+      name: "Russia as God's Dream",
+      price_in_cents: 1000,
+      price_in_cents_sold: 1000,
+      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+    },
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1000) {
+        setNumPreviews(3);
+      } else if (window.innerWidth <= 1300) {
+        setNumPreviews(4);
+      } else {
+        setNumPreviews(5);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const hoverUsername = (event) => {
     setUsernameIsHovering(true);
@@ -140,9 +193,19 @@ const Header = (props) => {
             <li>
               <a>Album Drops</a>
               <div className={classes.AlbumDrops}>
-                <NFTPreview direction="ltr"></NFTPreview>
-                <NFTPreview direction="ltr"></NFTPreview>
-                <NFTPreview direction="rtl"></NFTPreview>
+                {testNFTs.map((nft, index) => {
+                  return (
+                    <NFTPreview
+                      direction={numPreviewConfigs[numPreviews][index]}
+                      key={"" + index + "-nftpreview"}
+                      display={index < numPreviews}
+                      name={nft.name}
+                      price_in_cents={nft.price_in_cents}
+                      price_in_cents_sold={nft.price_in_cents_sold}
+                      cloudinary_id={nft.cloudinary_id}
+                    ></NFTPreview>
+                  );
+                })}
               </div>
             </li>
             <li>

@@ -15,7 +15,7 @@ model Product {
   name String
   author User? @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId Int
-  picture_cloudinary_public_id String
+  cloudinary_id String
   made_with String
   price_in_cents Int
 }

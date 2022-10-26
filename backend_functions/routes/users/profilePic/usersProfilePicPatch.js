@@ -14,6 +14,7 @@ async function usersProfilePicPatch(request, response) {
       body: formData,
     }
   ).then((cloudinaryResponse) => cloudinaryResponse.json());
+  console.log(cloudinaryResponse);
   const user = await prisma.user.update({
     where: {
       id: userID,

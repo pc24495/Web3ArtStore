@@ -23,6 +23,8 @@ const NFTPage = () => {
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
   const [showTypeFilters, setShowTypeFilters] = useState(true);
+  const MAX_POSTGRES_INT = 2147483647;
+
   const mockNFT = {
     numEditions: 2,
     name: "Loaded Lion 5692",
@@ -39,7 +41,7 @@ const NFTPage = () => {
   const [filters, setFilters] = useState({
     madeWith: [],
     minPrice: 0,
-    maxPrice: Number.MAX_SAFE_INTEGER,
+    maxPrice: MAX_POSTGRES_INT,
     sortBy: "Alphabet",
   });
   const [page, setPage] = useState(1);
@@ -47,7 +49,7 @@ const NFTPage = () => {
   const filtersRef = useRef({
     madeWith: [],
     minPrice: 0,
-    maxPrice: Number.MAX_SAFE_INTEGER,
+    maxPrice: MAX_POSTGRES_INT,
     sortBy: "Alphabet",
   });
   const NFTLoader = useRef(null);
@@ -74,15 +76,26 @@ const NFTPage = () => {
 
       if (newNFTs.length < 6) {
         // console.log(NFTState.NFTData);
-        const res = await axios.get("/products", {
-          params: {
-            productIDs: NFTState.NFTData.map((product) => product.id),
-            filters,
-          },
-          paramsSerializer: (params) => {
-            return qs.stringify(params);
-          },
-        });
+        const res = await axios
+          .get("/products", {
+            params: {
+              productIDs: NFTState.NFTData.map((product) => product.id),
+              filters,
+              numResults: 3,
+            },
+            paramsSerializer: (params) => {
+              return qs.stringify(params);
+            },
+          })
+          .then((response) => {
+            console.log(response.data.products);
+            setNFTState((prev) => {
+              return {
+                NFTData: prev.NFTData.concat(response.data.products),
+                NFTs: prev.NFTs.concat(response.data.products),
+              };
+            });
+          });
       }
     }
   }, [page, filters]);

@@ -25,23 +25,27 @@ const AdminPage = (props) => {
 
   const submitProduct = (event) => {
     event.preventDefault();
-    getBase64(file).then((result) => {
-      console.log(madeWith);
-      axios
-        .post("/products", {
-          name: name,
-          file: result,
-          madeWith,
-          priceInCents,
-        })
-        .then((response) => {
-          console.log(response.data);
-          router.push("/");
-        })
-        .catch((response) => {
-          console.log(response.data);
-        });
-    });
+    getBase64(file)
+      .then((result) => {
+        console.log(madeWith);
+        axios
+          .post("/products", {
+            name: name,
+            file: result,
+            madeWith,
+            priceInCents,
+          })
+          .then((response) => {
+            console.log(response.data);
+            router.push("/");
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const onNameChange = (event) => {
