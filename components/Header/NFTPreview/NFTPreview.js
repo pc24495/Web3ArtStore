@@ -34,8 +34,6 @@ const NFTPreview = ({
     },
   });
 
-  //   <Image layout="fill" objectFit="cover" src={url}></Image>
-
   return (
     <div
       className={classes.NFTCardContainer}
