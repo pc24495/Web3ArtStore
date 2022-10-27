@@ -11,6 +11,7 @@ const NFTPreview = ({
   price_in_cents,
   price_in_cents_sold,
   cloudinary_id,
+  username,
   ...props
 }) => {
   //Needs to unpack name, price, username of poster, profilepic of poster, number of editions, amount sold
@@ -74,7 +75,9 @@ const NFTPreview = ({
                 <div className={classes.EditionsViews}></div>
               </div>
             </div>
-            <div className={classes.UsernameSection}></div>
+            <div className={classes.UsernameSection}>
+              <p className={classes.Username}>{username}</p>
+            </div>
           </div>
         </div>
       </div>

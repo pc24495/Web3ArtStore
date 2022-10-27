@@ -21,34 +21,39 @@ const Header = (props) => {
   const [numPreviews, setNumPreviews] = useState(5);
   const testNFTs = [
     {
-      name: "Russia as God's Dream",
+      name: "Galaxy Basketball",
       price_in_cents: 1000,
-      price_in_cents_sold: 1000,
+      price_in_cents_sold: 0,
       cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+      username: "Prajwal Chummar",
     },
     {
-      name: "Russia as God's Dream",
-      price_in_cents: 1000,
-      price_in_cents_sold: 1000,
-      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+      name: "Oil Painting of River",
+      price_in_cents: 700,
+      price_in_cents_sold: 0,
+      cloudinary_id: "web-3-art-store/development/ozawnunztrlp4vzeoufw",
+      username: "Prajwal Chummar",
     },
     {
-      name: "Russia as God's Dream",
-      price_in_cents: 1000,
-      price_in_cents_sold: 1000,
-      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+      name: "Watercolor of Future City",
+      price_in_cents: 300,
+      price_in_cents_sold: 0,
+      cloudinary_id: "web-3-art-store/development/qgzpup2illlcxgbpotgn",
+      username: "Prajwal Chummar",
     },
     {
-      name: "Russia as God's Dream",
-      price_in_cents: 1000,
-      price_in_cents_sold: 1000,
-      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+      name: "Sailboat Circled by Birds",
+      price_in_cents: 400,
+      price_in_cents_sold: 0,
+      cloudinary_id: "web-3-art-store/development/ig5omdhbku4sn5v9a8gl",
+      username: "Prajwal Chummar",
     },
     {
-      name: "Russia as God's Dream",
-      price_in_cents: 1000,
-      price_in_cents_sold: 1000,
-      cloudinary_id: "web-3-art-store/development/mlufkegb58wabt8futdy",
+      name: "Oil Painting Robot Playing Chess",
+      price_in_cents: 600,
+      price_in_cents_sold: 0,
+      cloudinary_id: "web-3-art-store/development/kwoyzd4yjynwqchnacje",
+      username: "Prajwal Chummar",
     },
   ];
 
@@ -119,7 +124,7 @@ const Header = (props) => {
   return (
     <nav className={classes.Header}>
       <div className={classes.AnnouncementBar}>
-        NEW USERS GET $5 IN CREDITS WITH THEIR FIRST PURCHASE!{" "}
+        BUY\SELL NFTS AND DONATE THE PROCEEDS TO YOUR FAVORITE CHARITY!{" "}
       </div>
       <div className={classes.Socials}>
         <a href="https://www.linkedin.com/in/prajwal-c/">
@@ -191,7 +196,7 @@ const Header = (props) => {
           </div>
           <ul className={classes.TextCenter}>
             <li>
-              <a>Album Drops</a>
+              <a>Dall-e 2</a>
               <div className={classes.AlbumDrops}>
                 {testNFTs.map((nft, index) => {
                   return (
@@ -203,13 +208,14 @@ const Header = (props) => {
                       price_in_cents={nft.price_in_cents}
                       price_in_cents_sold={nft.price_in_cents_sold}
                       cloudinary_id={nft.cloudinary_id}
+                      username={nft.username}
                     ></NFTPreview>
                   );
                 })}
               </div>
             </li>
             <li>
-              <Link href="/nfts">Dall-e 2</Link>
+              <Link href="/nfts">Album Drops</Link>
             </li>
             <li>
               <a>Music</a>

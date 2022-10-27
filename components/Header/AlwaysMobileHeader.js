@@ -56,7 +56,7 @@ const AlwaysMobileHeader = (props) => {
   return (
     <nav className={classes.Header}>
       <div className={classes.AnnouncementBar}>
-        NEW USERS GET $5 IN CREDITS WITH THEIR FIRST PURCHASE!{" "}
+        BUY\SELL NFTS AND DONATE THE PROCEEDS TO YOUR FAVORITE CHARITY!{" "}
       </div>
       <div className={classes.Socials}>
         <a href="https://www.linkedin.com/in/prajwal-c/">

@@ -3,14 +3,14 @@
   width: 20%;
   height: 300px;
   padding: 20px;
-  background-color: orange;
+  background-color: white;
   display: block;
 
   .NFTCard {
     float: left;
     width: calc(100%);
     height: 100%;
-    background-color: purple;
+    background-color: white;
     direction: flex;
     flex-direction: row;
     border-radius: 30px;
@@ -27,7 +27,7 @@
     .Info {
       height: 100%;
       width: 0%;
-      background-color: pink;
+      background-color: white;
       transition: flex 0.22s;
       padding: 15px;
       display: flex;
@@ -38,7 +38,7 @@
       .InfoInner {
         width: 100%;
         height: 100%;
-        background-color: indigo;
+        background-color: white;
         // display: none;
         opacity: 0;
         transition: opacity 0.2s linear 0.22s;
@@ -123,7 +123,12 @@
         .UsernameSection {
           width: 100%;
           height: 40px;
-          background-color: black;
+          background-color: white;
+
+          .Username {
+            font-size: 20px;
+            font-weight: bold;
+          }
         }
       }
     }
@@ -131,12 +136,13 @@
 
   .NFTCard:hover {
     position: absolute;
-    background-color: green;
+    background-color: white;
     height: calc(100% - 40px);
     top: 20px;
     width: 220%;
     z-index: 200;
     display: flex;
+    border: 1px solid black;
 
     .ImageOuter {
       width: 40%;
@@ -155,6 +161,10 @@
   }
 }
 
+.NFTCardContainer:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 1300px) {
   .NFTCardContainer {
     width: 25%;
@@ -167,7 +177,7 @@
     width: 33.333%;
     // height: 300px;
     padding: 20px;
-    background-color: orange;
+    background-color: white;
     display: block;
     //   overflow: hidden;
 
@@ -175,26 +185,26 @@
       float: left;
       width: calc(100%);
       height: 100%;
-      background-color: purple;
+      background-color: white;
       direction: flex;
       flex-direction: row;
 
       .ImageOuter {
         height: 100%;
         width: 100%;
-        background-color: blue;
+        background-color: white;
       }
 
       .Info {
         height: 100%;
         // width: 0%;
-        background-color: pink;
+        background-color: white;
       }
     }
 
     .NFTCard:hover {
       position: absolute;
-      background-color: green;
+      background-color: white;
       height: calc(100% - 40px);
       top: 20px;
       width: 190%;
