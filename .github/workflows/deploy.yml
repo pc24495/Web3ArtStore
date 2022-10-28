@@ -16,9 +16,6 @@ jobs:
       - run: npm run validate
         env:
           DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
-      - run: npx prisma migrate resolve --rolled-back "20221026203649_changed_cloudinary_id_field_in_product_to_url"
-        env:
-          DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
       - run: npm run migrate-deploy
         env:
           DATABASE_URL: postgresql://${{ secrets.PGUSER }}:${{ secrets.PGPASSWORD }}@${{ secrets.PGHOST }}:${{ secrets.PGPORT }}/${{ secrets.PGDATABASE }}
