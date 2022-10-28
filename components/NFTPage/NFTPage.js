@@ -54,7 +54,7 @@ const NFTPage = () => {
   });
   const NFTLoader = useRef(null);
   const [done, setDone] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(async () => {
     if (
@@ -63,7 +63,7 @@ const NFTPage = () => {
     ) {
       pageRef.current = page;
       filtersRef.current = filters;
-      await setLoading(true);
+      // await setLoading(true);
 
       let newNFTs = NFTState.NFTData.filter((NFT) => {
         const { madeWith, minPrice, maxPrice } = filters;
@@ -88,13 +88,13 @@ const NFTPage = () => {
             },
           })
           .then((response) => {
-            console.log(response.data.products);
-            setNFTState((prev) => {
-              return {
-                NFTData: prev.NFTData.concat(response.data.products),
-                NFTs: prev.NFTs.concat(response.data.products),
-              };
-            });
+            // console.log(response.data.products);
+            // setNFTState((prev) => {
+            //   return {
+            //     NFTData: prev.NFTData.concat(response.data.products),
+            //     NFTs: prev.NFTs.concat(response.data.products),
+            //   };
+            // });
           });
       }
     }
@@ -158,15 +158,18 @@ const NFTPage = () => {
   const showDesktopNavigation = showDesktopSidebar && !mobileView;
 
   const handleMadeWithChange = async (event) => {
-    await setLoading(true);
+    // await setLoading(true);
     let madeWithSet = new Set(filters.madeWith);
     let oldNFTs = NFTState.NFTData;
     let newNFTs;
+    console.log("First made with", madeWithSet);
+    console.log(event.target.checked);
     if (event.target.checked) {
       madeWithSet.add(event.target.value);
     } else {
       madeWithSet.delete(event.target.value);
     }
+    console.log("Second made with", madeWithSet);
 
     newNFTs = oldNFTs.filter((NFT) => {
       let isRightMadeWith = true;
@@ -178,6 +181,7 @@ const NFTPage = () => {
         NFT.priceInCents <= filters.maxPrice;
       return isRightMadeWith && isInPriceRange;
     });
+    console.log(newNFTs);
     await setFilters((prev) => {
       return { ...prev, madeWith: Array.from(madeWithSet) };
     });
@@ -185,8 +189,6 @@ const NFTPage = () => {
       return { ...prev, NFTs: newNFTs };
     });
   };
-
-  console.log("rerender");
 
   return (
     <div className={classes.NFTPage}>
@@ -235,7 +237,6 @@ const NFTPage = () => {
                       type="checkbox"
                       value={option}
                       onChange={handleMadeWithChange}
-                      checked={filters.madeWith.includes(option)}
                     ></input>
                     <span>{option}</span>
                   </div>
