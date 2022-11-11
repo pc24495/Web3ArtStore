@@ -9,11 +9,18 @@ import { MdLogout } from "react-icons/md";
 import Link from "next/link";
 import axios from "../../axios.js";
 import { useUserData } from "../../store/UserDataProvider/UserDataProvider.js";
+import { useMobileSidebar } from "../../store/MobileSidebarProvider/MobileSidebarProvider.js";
 import { Image as CloudinaryImage } from "cloudinary-react";
 
 const AlwaysMobileHeader = (props) => {
   const { userData, setUserData } = useUserData();
   const [usernameIsHovering, setUsernameIsHovering] = useState(false);
+  const { mobileSidebarData, setMobileSidebarData } = useMobileSidebar();
+  const closeSidebar = (event) => {
+    setMobileSidebarData((prev) => {
+      return { ...prev, showSidebar: false };
+    });
+  };
   // useEffect(() => {
   //   console.log("Header rerender");
   //   axios.get("/users").then((response) => {
@@ -70,7 +77,7 @@ const AlwaysMobileHeader = (props) => {
         <div className={classes.SiteHeaderInner}>
           <div className={classes.LayoutCenter}>
             <div className={classes.MobileSidebarBurgerDiv}>
-              <HiMenu size={26}></HiMenu>
+              <HiMenu size={26} onClick={closeSidebar}></HiMenu>
             </div>
             <div className={classes.Navigation}>
               <GoSearch size={22}></GoSearch>

@@ -1,0 +1,30 @@
+import { useRouter } from "next/router";
+import classes from "../../../../styles/Admin.module.css";
+import Admin from "../../../../components/Admin/AdminPage.js";
+import AlwaysMobileLayout from "../../../../components/higher order components/AlwaysMobileLayout.js";
+import AdminPageLayout from "../../../../components/higher order components/AdminPageLayout.js";
+
+const User = (props) => {
+  const router = useRouter();
+  console.log(router);
+  const { user_id } = router.query;
+
+  return (
+    <div className={classes.Admin}>
+      <p>Blaaaa</p>
+    </div>
+  );
+};
+
+//Was formerly inside the Admin div
+// <Admin user_id={user_id}></Admin>
+
+User.getLayout = function getLayout(page) {
+  return (
+    <AlwaysMobileLayout>
+      <AdminPageLayout>{page}</AdminPageLayout>
+    </AlwaysMobileLayout>
+  );
+};
+
+export default User;

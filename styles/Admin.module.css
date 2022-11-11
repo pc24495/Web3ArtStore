@@ -1,7 +1,8 @@
 .Admin {
-  width: 100vw;
+  flex: 1;
   /* height: 110vh; */
-  background-color: white;
+  height: calc(100vh - 95px);
+  background-color: green;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

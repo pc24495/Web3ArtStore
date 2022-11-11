@@ -11,11 +11,13 @@ import axios from "../../axios.js";
 import { useUserData } from "../../store/UserDataProvider/UserDataProvider.js";
 import { Image as CloudinaryImage } from "cloudinary-react";
 import NFTPreview from "./NFTPreview/NFTPreview.js";
+import { useMobileSidebar } from "../../store/MobileSidebarProvider/MobileSidebarProvider.js";
 import cn from "classnames";
 
 const Header = (props) => {
   const { userData, setUserData } = useUserData();
   const [usernameIsHovering, setUsernameIsHovering] = useState(false);
+  const { setMobileSidebarData } = useMobileSidebar();
   const img_src = "/NFTPlaceholders/EpicPaintingOfRussiaAsGodsDream.png";
 
   const [numPreviews, setNumPreviews] = useState(5);
@@ -121,6 +123,13 @@ const Header = (props) => {
     },
   };
 
+  const showMobileSidebar = () => {
+    console.log("Hey");
+    setMobileSidebarData((prev) => {
+      return { ...prev, showSidebar: true };
+    });
+  };
+
   return (
     <nav className={classes.Header}>
       <div className={classes.AnnouncementBar}>
@@ -138,7 +147,7 @@ const Header = (props) => {
         <div className={classes.SiteHeaderInner}>
           <div className={classes.LayoutCenter}>
             <div className={classes.MobileSidebarBurgerDiv}>
-              <HiMenu size={26}></HiMenu>
+              <HiMenu size={26} onClick={showMobileSidebar}></HiMenu>
             </div>
             <div className={classes.Navigation}>
               <GoSearch size={22}></GoSearch>

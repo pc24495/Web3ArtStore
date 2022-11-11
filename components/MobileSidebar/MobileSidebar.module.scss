@@ -1,7 +1,97 @@
 .SidebarBackdrop {
-  position: absolute;
+  position: fixed;
   top: 0px;
   bottom: 0px;
   left: 0px;
-  right: 0px;
+  //   right: 0px;
+  //   background-color: black;
+  z-index: 2000;
+
+  .Sidebar {
+    height: 100%;
+    width: 444px;
+    background-color: white;
+    padding: 25px;
+    box-sizing: border-box;
+    transition: width 1s;
+
+    .SidebarInner {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+
+      .UserInfoBox {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+          border-radius: 50%;
+        }
+
+        h2 {
+          font-size: 30px;
+          text-align: center;
+          width: 100%;
+          margin: 15px 0px;
+        }
+
+        h2:hover {
+          text-decoration: underline;
+          color: gray;
+          cursor: pointer;
+        }
+      }
+
+      .SectionHeaderContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0px;
+        box-sizing: border-box;
+        width: 100%;
+
+        .SectionHeader {
+          text-align: left;
+          margin: 0px;
+          display: block;
+        }
+
+        .SectionHeaderCaret:hover {
+          cursor: pointer;
+        }
+
+        :first-of-type {
+          margin-top: 0px;
+        }
+      }
+
+      .SectionHeaderContainer:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .CloseButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .CloseButton:hover {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 444px) {
+  .SidebarBackdrop {
+    right: 0px;
+    .Sidebar {
+      width: 100%;
+    }
+  }
 }
