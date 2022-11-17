@@ -55,7 +55,11 @@ const User = (props) => {
               <label htmlFor="made_with_input"></label>
               <select name="made_with_input" id="made_with_input">
                 {madeWithOptions.map((opt) => {
-                  return <option value={opt}>{opt}</option>;
+                  return (
+                    <option value={opt} key={opt}>
+                      {opt}
+                    </option>
+                  );
                 })}
               </select>
             </div>

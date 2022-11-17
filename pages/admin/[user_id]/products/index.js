@@ -14,7 +14,7 @@ const User = (props) => {
 
   return (
     <div className={classes.AdminProducts}>
-      <Link href={`/admin/1/products/new`}>
+      <Link href={`/admin/${user_id}/products/new`}>
         <a>You don't have any products, click here to add your first!</a>
       </Link>
     </div>
