@@ -25,7 +25,7 @@ const AdminPageLayout = ({ children }) => {
       <MdProductionQuantityLimits
         size={20}
         className={classes.Icon}
-        color={route === "/admin/[user_id]/products" ? green : black}
+        color={route.startsWith("/admin/[user_id]/products") ? green : black}
       ></MdProductionQuantityLimits>
     ),
   };
@@ -43,7 +43,7 @@ const AdminPageLayout = ({ children }) => {
           {icons.Home}
         </AdminNavItem>
         <AdminNavItem
-          active={route === "/admin/[user_id]/products"}
+          active={route.startsWith("/admin/[user_id]/products")}
           label="Products"
           href={`/admin/1/products`}
         >

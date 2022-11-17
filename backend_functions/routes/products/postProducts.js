@@ -3,7 +3,6 @@ import formidable from "formidable";
 import FormData from "form-data";
 import areAllPropertiesNull from "../../helpers/areAllPropertiesNull.js";
 import madeWithOptions from "../../../configs/madeWith.js";
-import { createIf } from "typescript";
 
 export default async function postProducts(request, response) {
   const {

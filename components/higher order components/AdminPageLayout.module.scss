@@ -21,3 +21,11 @@
     // background-color: magenta;
   }
 }
+
+@media (max-width: 768px) {
+  .AdminPageLayout {
+    .AdminSidebar {
+      display: none;
+    }
+  }
+}

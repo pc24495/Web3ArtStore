@@ -8,15 +8,11 @@ import AdminPageLayout from "../../../../components/higher order components/Admi
 const User = (props) => {
   const router = useRouter();
   console.log(router);
-  const { user_id } = router.query;
-
-  const products = [{ name: "Prajwal Product 1", src: "" }];
+  const { product_id } = router.query;
 
   return (
-    <div className={classes.AdminProducts}>
-      <Link href={`/admin/1/products/new`}>
-        <a>You don't have any products, click here to add your first!</a>
-      </Link>
+    <div className={classes.Admin}>
+      <p>Product</p>
     </div>
   );
 };

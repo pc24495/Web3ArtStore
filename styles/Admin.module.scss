@@ -1,0 +1,242 @@
+.Admin,
+.AdminProducts {
+  flex: 1;
+  /* height: 110vh; */
+  height: calc(100vh - 95px);
+  // background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.AdminProducts {
+  a {
+    margin-top: 30px;
+    margin-left: calc(-239px / 2);
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: lightblue;
+  }
+}
+
+.AdminNewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: calc(100vh - 95px);
+  overflow-y: scroll;
+
+  .AdminNew {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 970px;
+    margin-left: -20px;
+    background-color: red;
+
+    .AddProductHeader {
+      width: 100%;
+    }
+
+    .AddProductForm {
+      // width: 100%;
+      // height: 300px;
+      margin: 0px 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .Section1 {
+        width: 620px;
+        height: 300px;
+        box-sizing: border-box;
+        margin: 16px 0px 0px 20px;
+        background-color: orange;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .TitleContainer,
+        .ImageContainer {
+          width: 100%;
+          border: 2px;
+          padding: 20px;
+          border-radius: 10px;
+          border: 1px solid black;
+          background-color: white;
+
+          label {
+            margin-bottom: 5px;
+            display: block;
+          }
+
+          .TextInput {
+            padding: 5px 12px;
+            font-size: 0.875rem;
+            line-height: 1.15rem;
+            width: 100%;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid gray;
+          }
+
+          .TextInput:focus {
+            outline: 2px solid lightblue;
+          }
+
+          .FileInput {
+            width: 100%;
+            height: 118px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px dotted blue;
+
+            .FileInputButton {
+              border: none;
+              background-color: rgb(229, 239, 253);
+              box-sizing: border-box;
+              padding: 8px;
+              border-radius: 5px;
+              color: rgb(31, 81, 153);
+              font-weight: bold;
+            }
+
+            .FileInputButton:hover {
+              cursor: pointer;
+              color: black;
+            }
+
+            p {
+              font-size: 13px;
+              color: gray;
+            }
+          }
+
+          .FileInput:hover {
+            cursor: pointer;
+            background-color: #f6f6f7;
+          }
+        }
+
+        .TitleContainer {
+          margin-bottom: 10px;
+        }
+      }
+
+      .Section2 {
+        width: 310px;
+        height: 300px;
+        box-sizing: border-box;
+        margin: 16px 0px 0px 20px;
+        background-color: purple;
+
+        .PriceContainer,
+        .MadeWithContainer {
+          width: 100%;
+          border: 2px;
+          padding: 20px;
+          border-radius: 10px;
+          border: 1px solid black;
+          background-color: white;
+
+          label {
+            margin-bottom: 5px;
+            display: block;
+          }
+
+          input,
+          select {
+            padding: 5px 12px;
+            font-size: 0.875rem;
+            line-height: 1.15rem;
+            width: 100%;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid black;
+          }
+
+          select:hover {
+            cursor: pointer;
+          }
+
+          input:focus {
+            outline: 2px solid lightblue;
+          }
+        }
+
+        .PriceContainer {
+          margin-bottom: 10px;
+        }
+      }
+
+      // background-color: red;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .AdminNewContainer {
+    .AdminNew {
+      width: 100%;
+
+      .AddProductForm {
+        width: 100%;
+
+        .Section1 {
+          width: 65%;
+        }
+
+        .Section2 {
+          width: 35%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1030px) {
+  .AdminNewContainer {
+    .AdminNew {
+      .AddProductForm {
+        flex-direction: column;
+        padding: 20px;
+
+        .Section1,
+        .Section2 {
+          width: 100%;
+          width: 100%;
+          margin: 0px;
+        }
+
+        .Section2 {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .AdminNewContainer {
+    .AdminNew {
+      margin-left: 0px;
+      .AddProductForm {
+        .Section1 {
+        }
+      }
+    }
+  }
+}

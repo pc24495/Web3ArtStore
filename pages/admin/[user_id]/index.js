@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import classes from "../../../styles/Admin.module.css";
+import classes from "../../../styles/Admin.module.scss";
 import Admin from "../../../components/Admin/AdminPage.js";
 import AlwaysMobileLayout from "../../../components/higher order components/AlwaysMobileLayout.js";
 import AdminPageLayout from "../../../components/higher order components/AdminPageLayout.js";
