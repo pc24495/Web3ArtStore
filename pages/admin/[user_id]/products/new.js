@@ -28,12 +28,14 @@ const User = (props) => {
               ></input>
             </div>
             <div className={classes.ImageContainer}>
-              <label htmlFor="product_image">Media</label>
+              <p>Media</p>
               <div className={classes.FileInput}>
+                <label htmlFor="product_image"></label>
                 <button type="file" className={classes.FileInputButton}>
                   Add file
                 </button>
                 <p>Accepts .png, .jpeg</p>
+                <input type="file" id="product_image"></input>
               </div>
             </div>
           </div>
