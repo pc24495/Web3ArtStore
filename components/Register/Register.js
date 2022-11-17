@@ -91,7 +91,7 @@ const Register = () => {
       {formik.errors.confirmPassword && (
         <p className={classes.ConfirmPasswordError}>
           {" "}
-          Passwords don&apost match{" "}
+          Passwords don&apos;t match{" "}
         </p>
       )}
       <button type="submit">Create Account</button>

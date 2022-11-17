@@ -1,4 +1,4 @@
-import classes from "../styles/ProfilePicUpload.module.css";
+import classes from "../styles/ProfilePicUpload.module.scss";
 import { useState } from "react";
 import { useUserData } from "../store/UserDataProvider/UserDataProvider.js";
 import Button from "../components/Button/Button.js";
@@ -143,7 +143,7 @@ export default function ProfilePicUpload() {
     <div className={classes.ProfilePicUploadPage}>
       <div className={classes.ProfilePicUpload}>
         <div className={classes.UploadSection}>
-          <h2 style={{ margin: "0px", color: "black" }}>
+          <h2 className={classes.SelectAProfilePic}>
             Select a profile picture
           </h2>
 
