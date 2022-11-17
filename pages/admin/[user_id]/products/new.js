@@ -48,6 +48,7 @@ const User = (props) => {
                 decimalSeparator="."
                 decimalsLimit="2"
                 id="price_input"
+                placeholder="$"
               ></CurrencyInput>
             </div>
             <div className={classes.MadeWithContainer}>
